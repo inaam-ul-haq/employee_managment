@@ -22,9 +22,10 @@ class UserSeeder extends Seeder
 
         $user1 = new User();
         $user1->name = 'Inaam ul haq';
-        $user1->uid = Str::uuid();
+        $user1->uuid = Str::uuid();
         $user1->email = 'waleedhaq339@gmail.com';
         $user1->password = Hash::make('Inaam@739');
+        $user1->email_verified_at = now();
         $user1->save();
         $user1->assignRole('admin');
     }
