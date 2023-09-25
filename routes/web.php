@@ -19,6 +19,7 @@ Auth::routes(['verify' => true, 'register' => false]);
 Route::group(
     ["middleware" => ["auth", 'verified']],
     function () {
+        Route::get('logout', [HomeController::class, 'logout'])->name('logout');
         Route::get('{any?}', [HomeController::class, 'index'])->where('any', '.*')->name('dashboard');
     }
 );
